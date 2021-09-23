@@ -1,3 +1,25 @@
+# ToDo
+- Kort-hantering:
+    - Göra så att kortet är vänt när man klickar på det
+    - Kunna para ihop kort med varandra. ID:n. Köra dictionary så de sitter ihop på något vänster?
+    - När man klickat på kort, så flippas korten tillbaka ifall det inte var korrekt. Annars, uppdateras antal rätt i headern. Är man riktigt rolig kan man skapa konfettiregn när man gjort rätt. Kanske blir irriterande om man vill spela och vinna dock...
+- Logga in med LiU-id.
+- Säkerhet. Se till att folk inte fuskar.
+
+# Påbörjat
+- Header med Spelarens namn, tid som gått sen start, antal rätt, antal kvar.
+- Card med fram och baksida
+- Välkomstsida/Meny där man kan skriva in sitt namn och komma till spelet (eller välja mellan spelförslagen) eller till scoreboarden o kolla läget.
+- Scoreboard (Gör om till komponent o lägg direkt i menyn?)
+- Player (Lägg in program-märke? och fixa css)
+
+# Idéer
+- Scramble funktion, så att korten blandas mellan varje omgång
+- Fasta platser för korten? Eller ligger de huller om buller?
+- "Olika" spel, förslag: Alla D-sektionens utskott (Matcha utskott med event?), Drag, Häfv, Webbutskottet, D-sektionens historia, Random (Matcha caps med alkohol?). Inbyggt i menyn eller en senare page?
+- Overkill: Ha ett kortspel där användare får lägga till kortpar som alla kan spela och utöka.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +90,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
