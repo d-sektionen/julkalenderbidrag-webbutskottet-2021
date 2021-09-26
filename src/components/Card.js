@@ -1,35 +1,25 @@
-import React from 'react';
-import logo from '../logo.svg';
+import React from "react"
+import logo from "../logo.svg"
+
+import "./Card.css"
 
 class Card extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  render() {
+    const { isFlipped, handleCardClick, isMatched } = this.props;
 
-    render() {
-        const handleClick = () => {
-          this.props.onClick(this.props.index)
-        }
-
-        return ( 
-          <div className={`card`} onClick={handleClick}>
-                
-            <div className="card-inner">
-              <div className="card-face card-front">
-                <h3> yo</h3>
-                <img src={logo}/>
-                <p>Front</p>
-              </div>        
-              
-              <div className="card-face card-back">
-                <h3>{this.props.name}</h3>
-                <img src={logo}/>
-                <p>{this.props.description}</p>
-              </div>
-            </div>
-          </div>
-        )
-    }
+    return (
+      <div
+        className={`card ${isFlipped() ? "card-show" : ""} ${isMatched() ? "card-show card-matched" : ""} `}
+        onClick={() => handleCardClick()}
+      >
+        <div className='card-content'>
+          <h3>yo</h3>
+          <img src={logo} />
+          <p>Front</p>
+        </div>
+      </div>
+    )
+  }
 }
 
-export default Card;
+export default Card

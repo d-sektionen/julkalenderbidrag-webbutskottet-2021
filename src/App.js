@@ -10,16 +10,18 @@ import Header from './components/Header';
 function App() {
 
   const [openCards, setOpenCards] = useState([])
+  const [finishedCards, setFinishedCards] = useState([])
   const [moves, setMoves] = useState(0)
 
-  const cards = ['Card 1', 'Card 2', 'Card 3', 'Card 4', 'Card 5']
+  const cards = Array(6*3).fill('')
 
   const handleClick = (data) => {
-    console.log("Handling click")
-    if (openCards.length === 1) {
+    if (openCards.length === 1 && openCards[0] !== data) {
       setOpenCards((prev) => [...prev, data]);
       setMoves((moves) => moves + 1)
-      // disable current card?
+      if (/*check if cards match*/ true) {
+        setFinishedCards([ ...finishedCards, ...openCards, data])
+      }
     } else {
       // clear timer?
       setOpenCards([data])
@@ -51,7 +53,6 @@ function App() {
     
   }
 
-  console.log(openCards)
   return (
     <div className="App">
 
@@ -66,11 +67,14 @@ function App() {
               name={cardEntry}
               description="Back"
               isFlipped={() => openCards.includes(i)}
-              onClick={handleClick}
+              isMatched={() => finishedCards.includes(i)}
+              handleCardClick={() => handleClick(i)}
             />
           ))
         }
       </div>
+
+      <div></div>
 
     </div>
   );

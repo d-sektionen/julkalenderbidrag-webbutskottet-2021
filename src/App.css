@@ -43,57 +43,18 @@
 }
 
 .App {
-  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .card-area {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: center;
   justify-items: center;
-  perspective: 100%;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  box-shadow: 2px 2px 4px 4px #DEDEDE;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-  position: relative;
-  cursor: pointer;
-  text-align: center;
-}
-
-.card-inner {
-  text-align: center;
-  position: relative;
-  transition: transform 1s;
-  height: '100%;'
-}
-
-.card-inner .card-back {
-  transform: rotateY(180deg);
-}
-
-.is-flipped {
-  transform: rotateY(180deg)
-}
-
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; 
-}
-
-.card-face .card-back {
-  background-color: green;
-  transform: rotateY(180deg);
+  margin: auto;
+  margin-bottom: auto;
+  max-width: 1450px;
 }
 
 /* Header Styles */
