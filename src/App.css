@@ -57,6 +57,10 @@
   max-width: 1450px;
 }
 
+.card-area h1 {
+  font-size: 10vw;
+}
+
 /* Header Styles */
 
 .title-bar, .stats {

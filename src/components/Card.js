@@ -5,7 +5,7 @@ import "./Card.css"
 
 class Card extends React.Component {
   render() {
-    const { isFlipped, handleCardClick, isMatched } = this.props;
+    const { isFlipped, handleCardClick, isMatched, name, img } = this.props;
 
     return (
       <div
@@ -13,9 +13,8 @@ class Card extends React.Component {
         onClick={() => handleCardClick()}
       >
         <div className='card-content'>
-          <h3>yo</h3>
-          <img src={logo} />
-          <p>Front</p>
+          {/* <h3>{name}</h3> */}
+          <img src={img} alt={name} />
         </div>
       </div>
     )
