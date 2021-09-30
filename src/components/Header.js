@@ -1,26 +1,27 @@
 import React from 'react';
 import logo from '../logo.svg';
 
+import './Header.css';
+
 class Header extends React.Component {
     
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
   }
 
   render() {
+    const seconds = Math.round(this.props.time / 1000)
+
     return (
       <div className="header">
                 
         <div className="title-bar">
-          <h3>Header</h3>
+          <h1>Header</h1>
         </div>
-
+        
         <div className="stats">
           <p>{this.props.name} ({this.props.liuid})</p> 
-          <p>Time passed: tid</p> 
+          <p>Time passed: {seconds}</p> 
           <p>Correct guesses: {this.props.correct}</p>
           <p>Cards left: {this.props.left}</p> 
         </div>

@@ -60,14 +60,3 @@
 .card-area h1 {
   font-size: 10vw;
 }
-
-/* Header Styles */
-
-.title-bar, .stats {
-  padding: 0 1rem;
-}
-
-.stats > * {
-  display: inline-block;
-  margin-right: 2rem;
-}

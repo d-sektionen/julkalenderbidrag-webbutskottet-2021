@@ -6,6 +6,7 @@ import './components/Header'
 
 import Card from './components/Card';
 import Header from './components/Header';
+import Victory from './components/Victory';
 
 const cards = [
   { 
@@ -53,15 +54,39 @@ const shuffle = (array) => {
     [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]]
   }
   return array
-} 
+}
 
-const memoryDeck = shuffle([ ...cards, ...cards])
-console.log(memoryDeck)
 function App() {
 
+  const [memoryDeck, setMemoryDeck] = useState([])
   const [openCards, setOpenCards] = useState([])
   const [finishedCards, setFinishedCards] = useState([])
   const [moves, setMoves] = useState(0)
+
+  const [startTime, setStartTime] = useState(new Date())
+  const [currentTime, setCurrentTime] = useState(new Date())
+  const [timerActive, setTimerActive] = useState(false);
+
+  const resetCards = () => {
+    setFinishedCards([])
+    setOpenCards([])
+    setMoves(0)
+    setMemoryDeck(shuffle([ ...cards, ...cards]))
+  }
+
+  const resetTimer = () => {
+    setStartTime(new Date())
+    setInterval(() => {
+      setCurrentTime(new Date())
+    }, 1000)
+    setTimerActive(true)
+  }
+
+  // TODO: incorporate both into start button instead
+  if (!timerActive) {
+    resetTimer()
+    resetCards()
+  }
 
   // const cards = Array(6*3).fill('')
 
@@ -80,7 +105,7 @@ function App() {
     if (openCards.length === 2 && memoryDeck[openCards[0]].name === memoryDeck[openCards[1]].name) {
       setFinishedCards(finishedCards => [ ...finishedCards, ...openCards])
     }
-}, [openCards])
+  }, [openCards])
 
   // Varje par behöver ha, två bilder, två beskrivningar
   const generateCardPair = (cards) => {
@@ -100,11 +125,8 @@ function App() {
     // lägger till två kort med, {id, bild, vänd: bool} i cards
   }
 
-  const timer = () => {
-    let timerActive = false;
-    const startTime = Date.now();
-    let currentTime = 0;
-    
+  const getLiuId = () => {
+    let res = fetch("https://backend.d-sektionen.se/account/me")
   }
 
   const cardSets = cards.length
@@ -113,7 +135,12 @@ function App() {
   return (
     <div className="App">
 
-      <Header name="Name Nameson" liuid="namna404" correct={finishedCards.length/2} left={cardSetsLeft}/>
+      <Header 
+        name="Name Nameson" 
+        liuid="namna404"
+        time={currentTime - startTime} 
+        correct={finishedCards.length/2} 
+        left={cardSetsLeft}/>
 
       <div className="card-area">
         {
@@ -129,13 +156,16 @@ function App() {
               handleCardClick={() => handleClick(i)}
             />
           ))) :
-          (<div>
-            <h1>U did it!</h1>
-          </div>)
+          (<Victory onRestart={() => {
+            resetTimer()
+            resetCards()
+          }} />)
         }
       </div>
 
       <div></div>
+      <button onClick={getLiuId}>Get id</button>
+      <a href="https://backend.d-sektionen.se/account/token?redirect=http://localhost:3000">Get token</a>
 
     </div>
   );
