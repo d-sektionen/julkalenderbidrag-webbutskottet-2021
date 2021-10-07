@@ -1,6 +1,5 @@
-
-import './App.css';
-import Player from './components/Player';
+import { Link } from 'react-router-dom';
+import Player from '../components/Player';
 
 function Scoreboard() {
 
@@ -14,7 +13,7 @@ function Scoreboard() {
             {/*Get from some file and insert into player component*/}
             
             <Player name="Ada Lovelace" program="D" time="2" />
-            
+            <Link to="/">Tillbaka!</Link>
             
         </div>
 

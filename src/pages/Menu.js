@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import { Link } from "react-router-dom";
 
 function Menu() {
 
@@ -8,7 +7,8 @@ function Menu() {
 
         <h1>Varmt välkommen till Webbutskottets julkalenderlucka!</h1>
 
-        <a href="#">Spela!</a>
+        <Link to="/game">Spela!</Link>
+        <Link to="/scoreboard">Scoreboard!</Link>
         
     </div>
   );

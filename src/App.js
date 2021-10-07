@@ -1,12 +1,14 @@
-import { memo, useEffect, useState, useCallback } from "react"
-import logo from './logo.svg';
+import { useEffect, useState } from "react"
+import { MemoryRouter, Redirect, Route, Switch } from "react-router";
 import './App.css';
 import './components/Card'
 import './components/Header'
 
 import Card from './components/Card';
 import Header from './components/Header';
-import Victory from './components/Victory';
+import Victory from './pages/Victory';
+import Menu from "./pages/Menu";
+import Scoreboard from "./pages/Scoreboard";
 
 const cards = [
   { 
@@ -135,33 +137,55 @@ function App() {
   return (
     <div className="App">
 
-      <Header 
-        name="Name Nameson" 
-        liuid="namna404"
-        time={currentTime - startTime} 
-        correct={finishedCards.length/2} 
-        left={cardSetsLeft}/>
+      <MemoryRouter>
+        <Switch>
+          <Route exact path="/">
+            
+            <Menu />
 
-      <div className="card-area">
-        {
-          cardSetsLeft > 0 ? (memoryDeck.map(({ img, name }, i) => (
-            <Card 
-              key={i}
-              index={i}
-              name={name}
-              img={img}
-              description="Back"
-              isFlipped={() => openCards.includes(i)}
-              isMatched={() => finishedCards.includes(i)}
-              handleCardClick={() => handleClick(i)}
-            />
-          ))) :
-          (<Victory onRestart={() => {
-            resetTimer()
-            resetCards()
-          }} />)
-        }
-      </div>
+          </Route>
+          <Route path="/scoreboard">
+            
+            <Scoreboard />
+
+          </Route>
+          <Route path="/game">
+
+            <Header 
+              name="Name Nameson" 
+              liuid="namna404"
+              time={currentTime - startTime} 
+              correct={finishedCards.length / 2} 
+              left={cardSetsLeft}/>
+
+            <div className="card-area">
+              {
+                cardSetsLeft > 0 ? (memoryDeck.map(({ img, name }, i) => (
+                  <Card 
+                    key={i}
+                    index={i}
+                    name={name}
+                    img={img}
+                    description="Back"
+                    isFlipped={() => openCards.includes(i)}
+                    isMatched={() => finishedCards.includes(i)}
+                    handleCardClick={() => handleClick(i)}
+                  />
+                ))) :
+                (<Redirect to="/victory" />)
+              }
+            </div>
+
+          </Route>
+          <Route path="/victory">
+
+            <Victory onRestart={() => { resetTimer(); resetCards() }} />
+
+          </Route>
+        </Switch>
+      </MemoryRouter>
+
+      
 
       <div></div>
       <button onClick={getLiuId}>Get id</button>
