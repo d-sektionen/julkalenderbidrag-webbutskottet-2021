@@ -7,6 +7,9 @@
     border-bottom: 1px solid;
     box-shadow: 0 3px 8px 0 rgba(0,0,0,0.65);
     background-color: darkgreen;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .title-bar > *,
@@ -24,8 +27,13 @@
 .stats {
     display: flex;
     flex-direction: row;
+
 }
 
 .stats > * {
     flex-grow: 1;
+}
+
+.stats p {
+  padding-inline: 2rem;
 }
