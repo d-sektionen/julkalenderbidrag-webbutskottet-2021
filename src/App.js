@@ -160,23 +160,25 @@ function App() {
               guesses={moves}
             />
 
-            <div className='card-area'>
-              {cardSetsLeft > 0 ? (
-                memoryDeck.map(({ img, name }, i) => (
-                  <Card
-                    key={i}
-                    index={i}
-                    name={name}
-                    img={img}
-                    description='Back'
-                    isFlipped={() => openCards.includes(i)}
-                    isMatched={() => finishedCards.includes(i)}
-                    handleCardClick={() => handleClick(i)}
-                  />
-                ))
-              ) : (
-                <Redirect to='/victory' />
-              )}
+            <div className='container'>
+              <div className='card-area'>
+                {cardSetsLeft > 0 ? (
+                  memoryDeck.map(({ img, name }, i) => (
+                    <Card
+                      key={i}
+                      index={i}
+                      name={name}
+                      img={img}
+                      description='Back'
+                      isFlipped={() => openCards.includes(i)}
+                      isMatched={() => finishedCards.includes(i)}
+                      handleCardClick={() => handleClick(i)}
+                    />
+                  ))
+                ) : (
+                  <Redirect to='/victory' />
+                )}
+              </div>
             </div>
           </Route>
           <Route path='/victory'>

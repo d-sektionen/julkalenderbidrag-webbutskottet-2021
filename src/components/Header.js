@@ -15,7 +15,7 @@ class Header extends React.Component {
       <div className="header">
                 
         <div className="title-bar">
-          <h1>Header</h1>
+          <h1>Webutskottets julkalenderbidrag 2021</h1>
         </div>
         
         <div className="stats">
