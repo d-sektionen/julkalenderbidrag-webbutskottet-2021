@@ -20,7 +20,8 @@ class Header extends React.Component {
         
         <div className="stats">
           <p>{this.props.name} ({this.props.liuid})</p> 
-          <p>Time passed: {seconds}</p> 
+          <p>Time passed: {seconds}</p>
+          <p>Total guesses: {this.props.guesses}</p> 
           <p>Correct guesses: {this.props.correct}</p>
           <p>Cards left: {this.props.left}</p> 
         </div>
