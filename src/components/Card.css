@@ -1,10 +1,7 @@
-
 .card {
   position: relative;
   border: 1px black;
   text-align: center;
-
-  margin: 10px;
 }
 
 .card::after {
@@ -13,7 +10,7 @@
   background-image: url("../images/webbgruppen-logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 200px auto;
+  background-size: 240px auto;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -31,8 +28,8 @@
 .card-content {
   display: flex;
   flex-direction: column;
-  height: 250px;
-  width: 200px;
+  height: 398px;
+  width: 300px;
   overflow: hidden;
 
   transform: rotateY(180deg) perspective(100px);
@@ -41,10 +38,24 @@
 
   border: 1px solid;
   box-shadow: 10px 10px 8px -7px rgba(0,0,0,0.65);
+  background-color: white;
+}
+
+.card h3 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 0px;
+}
+
+.card p {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  height: 54px;
 }
 
 .card-content img {
-  height: 100%;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
 }
 
@@ -60,4 +71,11 @@
   transition-delay: 0.4s;
   transition-duration: 0.4s;
   opacity: 0.3;
+}
+
+.card-img{
+  -webkit-user-drag: none; 
+  -khtml-user-drag: none; 
+  -moz-user-drag: none; 
+  -o-user-drag: none; 
 }

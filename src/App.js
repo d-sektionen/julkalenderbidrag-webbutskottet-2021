@@ -13,36 +13,44 @@ import Snowflakes from "./components/Snowflakes"
 
 const cards = [
   {
-    name: "Book",
-    img: "https://images.unsplash.com/photo-1536329583941-14287ec6fc4e?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1160&q=80",
+    name: "Isak Horvath (Webmaster)",
+    img: "images/isse.png",
+    description: "Programmeringsintreserad person som pluggar sitt tredje år på U-programmet!",
   },
   {
-    name: "Monkey",
+    name: "Viktor Holta",
     img: "https://images.unsplash.com/photo-1632845510162-c1c7c8d53780?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+    description: "Programmerings- och grafikinriktad mjukvaruingenjör!",
   },
   {
-    name: "Avocado",
-    img: "https://images.unsplash.com/photo-1632871704132-d21dfc90b74c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80",
+    name: "Martin Kuiper",
+    img: "images/martin.jpeg",
+    description: "Martin gillar att bygga coola saker och sjunga karaoke. Han pluggar IP2 och har en dödsfejd med css.",
   },
   {
-    name: "Pumpkin",
-    img: "https://images.unsplash.com/photo-1632769096411-a3c1e3aa1c3c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=688&q=80",
+    name: "Erik Ekelöf",
+    img: "images/erik.png",
+    description: "Pluggar IP2",
   },
   {
-    name: "Picnick",
-    img: "https://images.unsplash.com/photo-1632836986357-09388f7465e3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+    name: "Albin Thulin",
+    img: "images/albin.jpg",
+    description: "Går första året på D",
   },
   {
-    name: "Dog",
-    img: "https://images.unsplash.com/photo-1632769092277-83b8c526a673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=688&q=80",
+    name: "Jennifer Santos",
+    img: "images/jennifer.png",
+    description: "Pluggar D1",
   },
   {
-    name: "Mushroom",
+    name: "Michelle Krejci",
     img: "https://images.unsplash.com/photo-1632813881026-73d8df009015?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+    description: "här kan man lägga till beskrivning",
   },
   {
-    name: "Computer",
+    name: "Felix Lindgren",
     img: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1632&q=80",
+    description: "här kan man lägga till beskrivning",
   },
 ]
 
@@ -81,15 +89,11 @@ function App() {
   const resetTimer = () => {
     setStartTime(new Date())
     setInterval(() => {
-      setCurrentTime(new Date())
+      if (timerActive) {
+        setCurrentTime(new Date())
+      }
     }, 1000)
     setTimerActive(true)
-  }
-
-  // TODO: incorporate both into start button instead
-  if (!timerActive) {
-    resetTimer()
-    resetCards()
   }
 
   // const cards = Array(6*3).fill('')
@@ -132,12 +136,15 @@ function App() {
     // lägger till två kort med, {id, bild, vänd: bool} i cards
   }
 
-  const getLiuId = () => {
-    let res = fetch("https://backend.d-sektionen.se/account/me")
-  }
-
   const cardSets = cards.length
   const cardSetsLeft = cardSets - finishedCards.length / 2
+  
+  const FetchLiuId = () => {
+    let headers = {"Content-Type": "application/json"}
+    headers["Authorization"] = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM0NjY1MTQ1LCJqdGkiOiI5NjMzZjZjOWZjNjA0ZWM1OTBhNDg2ZTljYWY5YzQ1ZSIsInVzZXJfaWQiOjU5OH0.bqWQLnhUAIbUHacCDprANUxaFVW3u01l8tQt0VEVdnQ&refresh=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzNTUyOTE0NSwianRpIjoiOTE0MGExODVkNTYxNDBjMmEyNGZlYWI5OWEzMWExOTAiLCJ1c2VyX2lkIjo1OTh9.o7TqDYd-W1tzePoGKBKCzCAoKeU5epySmrrQYgxQZMo";
+    fetch("backend.d-sektionen.se/account/me")//.then(response => response.json()).then(data => console.log(data));
+    
+  }
 
   return (
     <div className='App'>
@@ -145,12 +152,18 @@ function App() {
       <MemoryRouter>
         <Switch>
           <Route exact path='/'>
-            <Menu />
+            <Menu 
+              onStart={() => {
+                resetTimer()
+                resetCards()
+              }}
+            />
           </Route>
           <Route path='/scoreboard'>
             <Scoreboard />
           </Route>
           <Route path='/game'>
+            
             <Header
               name='Name Nameson'
               liuid='namna404'
@@ -159,15 +172,16 @@ function App() {
               left={cardSetsLeft}
               guesses={moves}
             />
-
+            <button onClick={FetchLiuId}>fetch</button>
             <div className='container'>
               <div className='card-area'>
                 {cardSetsLeft > 0 ? (
-                  memoryDeck.map(({ img, name }, i) => (
+                  memoryDeck.map(({ img, name, description }, i) => (
                     <Card
                       key={i}
                       index={i}
                       name={name}
+                      profileDescription={description}
                       img={img}
                       description='Back'
                       isFlipped={() => openCards.includes(i)}
@@ -183,6 +197,8 @@ function App() {
           </Route>
           <Route path='/victory'>
             <Victory
+              time={currentTime - startTime}
+              guesses={moves}
               onRestart={() => {
                 resetTimer()
                 resetCards()
@@ -193,10 +209,6 @@ function App() {
       </MemoryRouter>
 
       <div></div>
-      <button onClick={getLiuId}>Get id</button>
-      <a href='https://backend.d-sektionen.se/account/token?redirect=http://localhost:3000'>
-        Get token
-      </a>
     </div>
   )
 }
