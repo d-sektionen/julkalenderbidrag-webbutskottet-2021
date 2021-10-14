@@ -78,6 +78,8 @@ function App() {
   const [startTime, setStartTime] = useState(new Date())
   const [currentTime, setCurrentTime] = useState(new Date())
   const [timerActive, setTimerActive] = useState(false)
+  const [liuid, setLiuid] = useState("1")
+  const [name, setName] = useState("2")
 
   const resetCards = () => {
     setFinishedCards([])
@@ -139,12 +141,28 @@ function App() {
   const cardSets = cards.length
   const cardSetsLeft = cardSets - finishedCards.length / 2
   
-  const FetchLiuId = () => {
-    let headers = {"Content-Type": "application/json"}
-    headers["Authorization"] = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM0NjY1MTQ1LCJqdGkiOiI5NjMzZjZjOWZjNjA0ZWM1OTBhNDg2ZTljYWY5YzQ1ZSIsInVzZXJfaWQiOjU5OH0.bqWQLnhUAIbUHacCDprANUxaFVW3u01l8tQt0VEVdnQ&refresh=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYzNTUyOTE0NSwianRpIjoiOTE0MGExODVkNTYxNDBjMmEyNGZlYWI5OWEzMWExOTAiLCJ1c2VyX2lkIjo1OTh9.o7TqDYd-W1tzePoGKBKCzCAoKeU5epySmrrQYgxQZMo";
-    fetch("backend.d-sektionen.se/account/me")//.then(response => response.json()).then(data => console.log(data));
-    
+  const FetchLiuId = async () => {
+    let headers = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Origin': '',authorization:"Bearer " + window.localStorage.getItem("token")}
+    let options = {method:"get", headers: new Headers(headers)}
+    await fetch("https://backend.d-sektionen.se/account/me", options).
+      then(res => res.json()).
+      then((data) => {
+        setLiuid(data.username)
+        setName(data.pretty_name)
+      })
   }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const access = urlParams.get("access")
+  if(access != null){
+    window.localStorage.setItem("token", access)
+    window.history.replaceState({}, document.title, "/")
+    FetchLiuId()
+  } else if(window.localStorage.getItem("token") != "null" || window.localStorage.getItem("token") != null){
+    FetchLiuId()
+  }
+
+  
 
   return (
     <div className='App'>
@@ -165,14 +183,13 @@ function App() {
           <Route path='/game'>
             
             <Header
-              name='Name Nameson'
-              liuid='namna404'
+              name={name}
+              liuid={liuid}
               time={currentTime - startTime}
               correct={finishedCards.length / 2}
               left={cardSetsLeft}
               guesses={moves}
             />
-            <button onClick={FetchLiuId}>fetch</button>
             <div className='container'>
               <div className='card-area'>
                 {cardSetsLeft > 0 ? (
