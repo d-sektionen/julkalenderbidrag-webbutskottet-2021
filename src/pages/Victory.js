@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 function Victory(props) {
-    const seconds = Math.round(this.props.time / 1000)
+    const seconds = Math.round(props.time / 1000)
 
     return (
         <div className="Victory">

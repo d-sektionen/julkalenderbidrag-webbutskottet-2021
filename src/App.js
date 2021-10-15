@@ -44,7 +44,7 @@ const cards = [
   },
   {
     name: "Michelle Krejci",
-    img: "https://images.unsplash.com/photo-1632813881026-73d8df009015?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+    img: "images/mich.png",
     description: "här kan man lägga till beskrivning",
   },
   {

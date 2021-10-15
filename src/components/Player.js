@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../logo.svg';
 
 class Player extends React.Component {
     

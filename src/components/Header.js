@@ -23,7 +23,7 @@ class Header extends React.Component {
           <p>Time passed: {seconds}</p>
           <p>Total guesses: {this.props.guesses}</p> 
           <p>Correct guesses: {this.props.correct}</p>
-          <p>Cards left: {this.props.left}</p> 
+          <p>Pairs left: {this.props.left}</p> 
         </div>
             
       </div>
