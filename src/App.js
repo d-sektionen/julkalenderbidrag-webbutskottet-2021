@@ -19,7 +19,7 @@ const cards = [
   },
   {
     name: "Viktor Holta",
-    img: "https://images.unsplash.com/photo-1632845510162-c1c7c8d53780?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+    img: "images/viktor.png",
     description: "Programmerings- och grafikinriktad mjukvaruingenjör!",
   },
   {
