@@ -152,6 +152,35 @@ function App() {
       })
   }
 
+  const sendScore = async () => {
+    /* let headers = {'Accept': 'application/json', 'Content-Type': 'application/json', 'Origin': ''}
+    let options = {method:"post", headers: new Headers(headers), mode: 'cors'} */
+    let data = JSON.stringify({
+    user: liuid,
+    time_taken: (currentTime-startTime),
+    total_tries: moves
+    })
+    let url_local = "http://localhost:8000"
+    let url_heroku = "https://webbu-julkalender-21.herokuapp.com"
+    await fetch(url_heroku + "/scoreboard/create/", {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization' :"Bearer " + window.localStorage.getItem("token")
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    }).then(res => res.json()).
+    then((data) => {
+      console.log(data)
+    }) 
+        
+  }
+
   const urlParams = new URLSearchParams(window.location.search);
   const access = urlParams.get("access")
   if(access != null){
@@ -190,6 +219,7 @@ function App() {
               left={cardSetsLeft}
               guesses={moves}
             />
+            <button onClick={sendScore}>Send score</button>
             <div className='container'>
               <div className='card-area'>
                 {cardSetsLeft > 0 ? (
