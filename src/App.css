@@ -49,10 +49,6 @@
   height: 100%;
 }
 
-.Menu h1 {
-  font-size: 3rem;
-}
-
 .button-column {
   display: flex;
   flex-direction: column;
@@ -81,4 +77,5 @@
 h1 {
   font-family: 'Lobster', cursive;
   font-size: 3em;
+  color: white;
 }
