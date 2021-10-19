@@ -199,6 +199,7 @@ function App() {
                 resetTimer();
                 resetCards();
               }}
+              liuid={liuid === "1" ? undefined : liuid}
             />
           </Route>
           <Route path="/scoreboard">
