@@ -80,8 +80,8 @@ function App() {
   const [startTime, setStartTime] = useState(new Date());
   const [currentTime, setCurrentTime] = useState(new Date());
   const [timerActive, setTimerActive] = useState(false);
-  const [liuid, setLiuid] = useState("1");
-  const [name, setName] = useState("2");
+  const [liuid, setLiuid] = useState(undefined);
+  const [name, setName] = useState(undefined);
 
   const resetCards = () => {
     setFinishedCards([]);
@@ -99,8 +99,6 @@ function App() {
     }, 1000);
     setTimerActive(true);
   };
-
-  // const cards = Array(6*3).fill('')
 
   const handleClick = (data) => {
     if (openCards.length === 1 && openCards[0] !== data) {
@@ -184,6 +182,11 @@ function App() {
     FetchLiuId();
   }
 
+  const startGame = () => {
+    resetTimer();
+    resetCards();
+  };
+
   const cardSets = cards.length;
   const cardSetsLeft = cardSets - finishedCards.length / 2;
   const timeValue = currentTime - startTime;
@@ -195,11 +198,10 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Menu
-              onStart={() => {
-                resetTimer();
-                resetCards();
-              }}
-              liuid={liuid === "1" ? undefined : liuid}
+              onStart={startGame}
+              resetTimer={resetTimer}
+              resetCards={resetCards}
+              liuid={liuid}
             />
           </Route>
           <Route path="/scoreboard">

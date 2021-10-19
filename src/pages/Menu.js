@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 function Menu({ onStart, liuid }) {
   return (
@@ -6,14 +6,14 @@ function Menu({ onStart, liuid }) {
       <h1>Varmt välkommen till Webbutskottets julkalenderlucka!</h1>
 
       <div className="button-column">
-        <Link to="/game" onClick={onStart}>
+        <Button link="/game" onClick={onStart}>
           Spela!
-        </Link>
-        <Link to="/scoreboard">Scoreboard!</Link>
+        </Button>
+        <Button link="/scoreboard">Scoreboard!</Button>
         {!liuid && (
-          <a href="https://backend.d-sektionen.se/account/token/?redirect=http://localhost:3000">
+          <Button href="https://backend.d-sektionen.se/account/token/?redirect=http://localhost:3000">
             Login
-          </a>
+          </Button>
         )}
       </div>
     </div>

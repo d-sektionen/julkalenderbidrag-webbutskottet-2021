@@ -1,31 +1,14 @@
-import React from 'react';
+import React from "react";
 
-class Player extends React.Component {
-    
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <div 
-        className="player" 
-        style={{            
-
-        }}>
-                
-        <p>{this.props.name}</p>    {/*Namn och liu-id, token från liu api typ*/}
-        <p>{this.props.program}</p> {/*Skriv in självmant i meny? Ha bild på programloggan vid sidan av namnet?*/}
-        <p>{this.props.time}</p> 
-
-            
-      </div>
-    )
-  }
-
+function Player({ name, program, time }) {
+  return (
+    <div className="player" style={{}}>
+      <p>{name}</p> {/*Namn och liu-id, token från liu api typ*/}
+      <p>{program}</p>{" "}
+      {/*Skriv in självmant i meny? Ha bild på programloggan vid sidan av namnet?*/}
+      <p>{time}</p>
+    </div>
+  );
 }
 
 export default Player;
