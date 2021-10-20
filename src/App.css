@@ -38,7 +38,7 @@
   box-sizing: border-box;
 }
 
-.Menu, .Victory {
+.Menu, .Victory, .Scoreboard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,6 +47,13 @@
 
   width: 100%;
   height: 100%;
+}
+
+.score-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 3em;
 }
 
 .button-column {

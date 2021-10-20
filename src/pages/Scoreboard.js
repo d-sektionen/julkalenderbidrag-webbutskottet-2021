@@ -1,17 +1,21 @@
-import { Link } from "react-router-dom";
-import Player from "../components/Player";
+import ScoreEntry from "../components/ScoreEntry";
+import Button from "../components/Button";
 
 function Scoreboard() {
   return (
     <div className="Scoreboard">
       <h1>Scoreboard</h1>
 
-      <div className="playerlist">
-        {/*Get from some file and insert into player component*/}
-
-        <Player name="Ada Lovelace" program="D" time="2" />
-        <Link to="/">Tillbaka!</Link>
+      <div className="score-list">
+        {/*Get from some file and insert into score component*/}
+        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
+        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
+        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
+        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
+        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
       </div>
+
+      <Button link="/">Tillbaka!</Button>
     </div>
   );
 }
