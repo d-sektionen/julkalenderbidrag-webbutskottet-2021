@@ -243,10 +243,7 @@ function App() {
             <Victory
               time={currentTime - startTime}
               guesses={moves}
-              onRestart={() => {
-                resetTimer();
-                resetCards();
-              }}
+              onRestart={startGame}
             />
           </Route>
         </Switch>

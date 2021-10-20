@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Button from "../components/Button";
 
 function Victory({ onRestart, time, guesses }) {
   const seconds = Math.round(time / 1000);
@@ -10,9 +10,9 @@ function Victory({ onRestart, time, guesses }) {
       <h2>Guesses: {guesses}</h2>
 
       <div className="button-column">
-        <Link to="/game" onClick={onRestart}>
+        <Button link="/game" onClick={onRestart}>
           Starta om!
-        </Link>
+        </Button>
       </div>
     </div>
   );
