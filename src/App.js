@@ -216,7 +216,7 @@ function App() {
               left={cardSetsLeft}
               guesses={moves}
             />
-            <button onClick={sendScore}>Send score</button>
+            {/* <button onClick={sendScore}>Send score</button> */}
             <div className="container">
               <div className="card-area">
                 {cardSetsLeft > 0 ? (
