@@ -1,18 +1,15 @@
 import ScoreEntry from "../components/ScoreEntry";
 import Button from "../components/Button";
 
-function Scoreboard() {
+function Scoreboard({scores}) {
   return (
     <div className="Scoreboard">
       <h1>Scoreboard</h1>
 
       <div className="score-list">
-        {/*Get from some file and insert into score component*/}
-        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
-        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
-        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
-        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
-        <ScoreEntry name="Ada Lovelace" program="D" time="2" guesses="16" />
+        {scores.length > 0 ? (scores.map((score, i) =>
+          (<ScoreEntry key={i} name={score.user} program="D" time={score.time_taken} guesses={score.total_tries} /> ) 
+        )): ""}
       </div>
 
       <Button link="/">Tillbaka!</Button>

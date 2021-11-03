@@ -34,7 +34,7 @@ const cards = [
     img: "images/erik.png",
     description: "Pluggar IP2",
   },
-  {
+   {
     name: "Albin Thulin",
     img: "images/albin.jpg",
     description: "Går första året på D",
@@ -51,9 +51,9 @@ const cards = [
   },
   {
     name: "Felix Lindgren",
-    img: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1632&q=80",
-    description: "här kan man lägga till beskrivning",
-  },
+    img: "images/felix.png",
+    description: "Pluggar fjärde året data.",
+  },  
 ];
 
 const shuffle = (array) => {
@@ -81,7 +81,9 @@ function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [timerActive, setTimerActive] = useState(false);
   const [liuid, setLiuid] = useState(undefined);
+  const [intervalId, setIntervalId] = useState(null);
   const [name, setName] = useState(undefined);
+  const [scores, setScores] = useState([]);
 
   const resetCards = () => {
     setFinishedCards([]);
@@ -90,13 +92,16 @@ function App() {
     setMemoryDeck(shuffle([...cards, ...cards]));
   };
 
+
   const resetTimer = () => {
     setStartTime(new Date());
-    setInterval(() => {
+    let id = setInterval(() => {
+      console.log(timerActive, cardSetsLeft)
       if (timerActive) {
         setCurrentTime(new Date());
       }
     }, 1000);
+    setIntervalId(id)
     setTimerActive(true);
   };
 
@@ -145,7 +150,7 @@ function App() {
     let options = {method:"post", headers: new Headers(headers), mode: 'cors'} */
     let data = JSON.stringify({
       user: liuid,
-      time_taken: currentTime - startTime,
+      time_taken: (currentTime - startTime)/1000,
       total_tries: moves,
     });
     let url_local = "http://localhost:8000";
@@ -163,24 +168,30 @@ function App() {
       referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
   };
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const access = urlParams.get("access");
-  if (access != null) {
-    window.localStorage.setItem("token", access);
-    window.history.replaceState({}, document.title, "/");
-    FetchLiuId();
-  } else if (
-    window.localStorage.getItem("token") != "null" ||
-    window.localStorage.getItem("token") != null
-  ) {
-    FetchLiuId();
-  }
+  useEffect(()=>{
+    const urlParams = new URLSearchParams(window.location.search);
+    const access = urlParams.get("access");
+    if (access != null) {
+      window.localStorage.setItem("token", access);
+      window.history.replaceState({}, document.title, "/");
+      FetchLiuId();
+    } else if (
+      window.localStorage.getItem("token") != "null" ||
+      window.localStorage.getItem("token") != null
+    ) {
+      FetchLiuId();
+    }
+  }, [])
+  
+
+  useEffect(()=>{
+    fetch("https://webbu-julkalender-21.herokuapp.com/scoreboard/view/")
+    .then(res => res.json())
+    .then(data => setScores(data))
+    .then(()=>{console.log(scores)})
+  }, [])
 
   const startGame = () => {
     resetTimer();
@@ -190,6 +201,7 @@ function App() {
   const cardSets = cards.length;
   const cardSetsLeft = cardSets - finishedCards.length / 2;
   const timeValue = currentTime - startTime;
+
 
   return (
     <div className="App">
@@ -205,7 +217,7 @@ function App() {
             />
           </Route>
           <Route path="/scoreboard">
-            <Scoreboard />
+            <Scoreboard scores={scores}/>
           </Route>
           <Route path="/game">
             <Header
@@ -240,9 +252,12 @@ function App() {
             </div>
           </Route>
           <Route path="/victory">
+            
             <Victory
               time={currentTime - startTime}
               guesses={moves}
+              _sendScore={sendScore}
+              intervalId={intervalId}
               onRestart={startGame}
             />
           </Route>
