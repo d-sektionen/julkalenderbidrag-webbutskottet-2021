@@ -25,7 +25,7 @@ const cards = [
   },
   {
     name: "Martin Kuiper",
-    img: process.env.PUBLIC_URL + "/images/martin.jpeg",
+    img: process.env.PUBLIC_URL + "/images/martin.png",
     description:
       "Martin gillar att bygga coola saker och sjunga karaoke. Han pluggar IP2 och har en dödsfejd med css.",
   },
