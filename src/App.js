@@ -14,44 +14,44 @@ import Snowflakes from "./components/Snowflakes";
 const cards = [
   {
     name: "Isak Horvath (Webmaster)",
-    img: "images/isse.png",
+    img: process.env.PUBLIC_URL + "/images/isse.png",
     description:
       "Programmeringsintreserad person som pluggar sitt tredje år på U-programmet!",
   },
   {
     name: "Viktor Holta",
-    img: "images/viktor.png",
+    img: process.env.PUBLIC_URL + "/images/viktor.png",
     description: "Programmerings- och grafikinriktad mjukvaruingenjör!",
   },
   {
     name: "Martin Kuiper",
-    img: "images/martin.jpeg",
+    img: process.env.PUBLIC_URL + "/images/martin.jpeg",
     description:
       "Martin gillar att bygga coola saker och sjunga karaoke. Han pluggar IP2 och har en dödsfejd med css.",
   },
   {
     name: "Erik Ekelöf",
-    img: "images/erik.png",
+    img: process.env.PUBLIC_URL + "/images/erik.png",
     description: "Pluggar IP2",
   },
    {
     name: "Albin Thulin",
-    img: "images/albin.jpg",
+    img: process.env.PUBLIC_URL + "/images/albin.jpg",
     description: "Går första året på D",
   },
   {
     name: "Jennifer Santos",
-    img: "images/jennifer.png",
+    img: process.env.PUBLIC_URL + "/images/jennifer.png",
     description: "Pluggar D1",
   },
   {
     name: "Michelle Krejci",
-    img: "images/mich.png",
+    img: process.env.PUBLIC_URL + "/images/mich.png",
     description: "Programmering och pengar är fett kul.",
   },
   {
     name: "Felix Lindgren",
-    img: "images/felix.png",
+    img: process.env.PUBLIC_URL + "/images/felix.png",
     description: "Pluggar fjärde året data.",
   },  
 ];
