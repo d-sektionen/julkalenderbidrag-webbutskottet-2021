@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.5fced21f.chunk.css",
-    "main.js": "/static/js/main.56238f6d.chunk.js",
-    "main.js.map": "/static/js/main.56238f6d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6d307c26.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6d307c26.js.map",
-    "static/js/2.ab2b77c8.chunk.js": "/static/js/2.ab2b77c8.chunk.js",
-    "static/js/2.ab2b77c8.chunk.js.map": "/static/js/2.ab2b77c8.chunk.js.map",
-    "static/js/3.1e841eb5.chunk.js": "/static/js/3.1e841eb5.chunk.js",
-    "static/js/3.1e841eb5.chunk.js.map": "/static/js/3.1e841eb5.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.5fced21f.chunk.css.map": "/static/css/main.5fced21f.chunk.css.map",
-    "static/js/2.ab2b77c8.chunk.js.LICENSE.txt": "/static/js/2.ab2b77c8.chunk.js.LICENSE.txt",
-    "static/media/Card.css": "/static/media/webbutskottet_logo.765d6f30.png"
+    "main.css": "/julkalenderbidrag-webbutskottet-2021/static/css/main.c431fb2f.chunk.css",
+    "main.js": "/julkalenderbidrag-webbutskottet-2021/static/js/main.36929a8a.chunk.js",
+    "main.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/main.36929a8a.chunk.js.map",
+    "runtime-main.js": "/julkalenderbidrag-webbutskottet-2021/static/js/runtime-main.3421f714.js",
+    "runtime-main.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/runtime-main.3421f714.js.map",
+    "static/js/2.ab2b77c8.chunk.js": "/julkalenderbidrag-webbutskottet-2021/static/js/2.ab2b77c8.chunk.js",
+    "static/js/2.ab2b77c8.chunk.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/2.ab2b77c8.chunk.js.map",
+    "static/js/3.1e841eb5.chunk.js": "/julkalenderbidrag-webbutskottet-2021/static/js/3.1e841eb5.chunk.js",
+    "static/js/3.1e841eb5.chunk.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/3.1e841eb5.chunk.js.map",
+    "index.html": "/julkalenderbidrag-webbutskottet-2021/index.html",
+    "static/css/main.c431fb2f.chunk.css.map": "/julkalenderbidrag-webbutskottet-2021/static/css/main.c431fb2f.chunk.css.map",
+    "static/js/2.ab2b77c8.chunk.js.LICENSE.txt": "/julkalenderbidrag-webbutskottet-2021/static/js/2.ab2b77c8.chunk.js.LICENSE.txt",
+    "static/media/Card.css": "/julkalenderbidrag-webbutskottet-2021/static/media/webbutskottet_logo.765d6f30.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6d307c26.js",
+    "static/js/runtime-main.3421f714.js",
     "static/js/2.ab2b77c8.chunk.js",
-    "static/css/main.5fced21f.chunk.css",
-    "static/js/main.56238f6d.chunk.js"
+    "static/css/main.c431fb2f.chunk.css",
+    "static/js/main.36929a8a.chunk.js"
   ]
 }
