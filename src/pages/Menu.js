@@ -11,7 +11,7 @@ function Menu({ onStart, liuid }) {
         </Button>
         <Button link="/scoreboard">Scoreboard!</Button>
         {!liuid && (
-          <Button href="https://backend.d-sektionen.se/account/token/?redirect=http://localhost:3000">
+          <Button href="https://backend.d-sektionen.se/account/token/?redirect=https://d-sektionen.github.io/julkalenderbidrag-webbutskottet-2021/">
             Login
           </Button>
         )}
