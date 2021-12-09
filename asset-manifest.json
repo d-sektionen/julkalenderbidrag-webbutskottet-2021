@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/julkalenderbidrag-webbutskottet-2021/static/css/main.c431fb2f.chunk.css",
-    "main.js": "/julkalenderbidrag-webbutskottet-2021/static/js/main.897d8769.chunk.js",
-    "main.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/main.897d8769.chunk.js.map",
+    "main.css": "/julkalenderbidrag-webbutskottet-2021/static/css/main.57520cb4.chunk.css",
+    "main.js": "/julkalenderbidrag-webbutskottet-2021/static/js/main.f1516c4b.chunk.js",
+    "main.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/main.f1516c4b.chunk.js.map",
     "runtime-main.js": "/julkalenderbidrag-webbutskottet-2021/static/js/runtime-main.3421f714.js",
     "runtime-main.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/runtime-main.3421f714.js.map",
     "static/js/2.ab2b77c8.chunk.js": "/julkalenderbidrag-webbutskottet-2021/static/js/2.ab2b77c8.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.1e841eb5.chunk.js": "/julkalenderbidrag-webbutskottet-2021/static/js/3.1e841eb5.chunk.js",
     "static/js/3.1e841eb5.chunk.js.map": "/julkalenderbidrag-webbutskottet-2021/static/js/3.1e841eb5.chunk.js.map",
     "index.html": "/julkalenderbidrag-webbutskottet-2021/index.html",
-    "static/css/main.c431fb2f.chunk.css.map": "/julkalenderbidrag-webbutskottet-2021/static/css/main.c431fb2f.chunk.css.map",
+    "static/css/main.57520cb4.chunk.css.map": "/julkalenderbidrag-webbutskottet-2021/static/css/main.57520cb4.chunk.css.map",
     "static/js/2.ab2b77c8.chunk.js.LICENSE.txt": "/julkalenderbidrag-webbutskottet-2021/static/js/2.ab2b77c8.chunk.js.LICENSE.txt",
     "static/media/Card.css": "/julkalenderbidrag-webbutskottet-2021/static/media/webbutskottet_logo.765d6f30.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3421f714.js",
     "static/js/2.ab2b77c8.chunk.js",
-    "static/css/main.c431fb2f.chunk.css",
-    "static/js/main.897d8769.chunk.js"
+    "static/css/main.57520cb4.chunk.css",
+    "static/js/main.f1516c4b.chunk.js"
   ]
 }
